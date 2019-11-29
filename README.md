@@ -1,27 +1,37 @@
-# Bingo
+## Bingo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+1から111までの数を周期表上に表示するビンゴです。
 
-## Development server
+![bingo](https://github.com/masaxsuzu/bingo/raw/master/assets/play.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### URL
 
-## Code scaffolding
+[play](https://masaxsuzu.github.io/bingo)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 使い方
 
-## Build
+- スタートボタンを押すとルーレットが始まります。
+- ドラムロールが5秒ほど流れます。 
+- リセットボタンを押すことでルーレット結果を初期化します。  
+- ルーレットの結果は[ローカルストレージ](https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage)に保存しているため、再読み込みをしても直前の状態に復元されます。  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### 動作環境
 
-## Running unit tests
+テスト環境には
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Google Chrome
 
-## Running end-to-end tests
+を使用しています。
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Author
 
-## Further help
+[masaxsuzu](https://github.com/masaxsuzu)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Original authors are
+
+- [sifue](https://github.com/sifue/partybingo)
+- [syumai](https://github.com/syumai/partybingo)
+
+### License
+
+MIT

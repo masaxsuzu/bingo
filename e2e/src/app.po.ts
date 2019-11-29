@@ -5,7 +5,12 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getTitleText() {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+  getCurrentNumberText() {
+    return element(by.className('current-number active')).getText() as Promise<string>;
   }
+
+  getCopyrightText() {
+    return element(by.className('copyright')).getText() as Promise<string>;
+  }
+
 }

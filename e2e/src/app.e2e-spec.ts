@@ -8,9 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display MS', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('bingo app is running!');
+    expect(page.getCurrentNumberText()).toEqual('MS');
+  });
+
+  it('should have copyright', () => {
+    page.navigateTo();
+    expect(page.getCopyrightText()).not.toEqual('');
   });
 
   afterEach(async () => {
