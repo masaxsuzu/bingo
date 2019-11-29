@@ -1,12 +1,14 @@
 ## Bingo
 
+[![Actions Status](https://github.com/masaxsuzu/bingo/workflows/CI/CD/badge.svg)](https://github.com/masaxsuzu/bingo/actions) [![codebeat badge](https://codebeat.co/badges/d7f6198a-5fd2-4955-85fd-5c4bc1f6a6da)](https://codebeat.co/projects/github-com-masaxsuzu-bingo-master)
+
 1から111までの数を周期表上に表示するビンゴです。
 
 ![bingo](https://github.com/masaxsuzu/bingo/raw/master/assets/play.png)
 
-### URL
+### 公開場所
 
-[play](https://masaxsuzu.github.io/bingo)
+[github pages](https://masaxsuzu.github.io/bingo)で利用可能です。
 
 ### 使い方
 
@@ -17,11 +19,9 @@
 
 ### 動作環境
 
-テスト環境には
+```Google Chrome```を用いて自動テストを実施しています。
 
-- Google Chrome
-
-を使用しています。
+```Internet Explorer```では動作しません。
 
 ### Author
 
