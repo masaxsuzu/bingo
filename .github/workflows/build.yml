@@ -31,7 +31,7 @@ jobs:
     - name: E2E
       run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
     - name: Deploy      
-      run: npm run deploy -- --base-href=/bingo --name="masaxsuzu" --email=masaxsuzu+github@gmail.com
+      run: npm run action:deploy -- --message `git rev-parse HEAD` 
       env:
         CI: true
-        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
