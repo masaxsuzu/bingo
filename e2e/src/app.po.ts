@@ -13,4 +13,8 @@ export class AppPage {
     return element(by.className('copyright')).getText() as Promise<string>;
   }
 
+  getVersionText() {
+    return element(by.className('version')).getText() as Promise<string>;
+  }
+
 }

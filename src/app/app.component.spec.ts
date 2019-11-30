@@ -1,7 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { ConfirmService } from './dialogs/confirm.service';
+import { ConfirmService } from './services/confirm.service';
+import { VersionService } from './services/version.service';
 import { range } from 'rxjs';
 
 class MockConfirm {
@@ -15,6 +16,8 @@ class MockConfirm {
 
 describe('AppComponent', () => {
   const mockConfirm: MockConfirm = new MockConfirm();
+  const version: VersionService = new VersionService(1, 1, 0, 'test');
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -24,7 +27,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        { provide: ConfirmService, useValue: mockConfirm }
+        { provide: ConfirmService, useValue: mockConfirm },
+        { provide: VersionService, useValue: version }
       ]
     }).compileComponents();
   }));

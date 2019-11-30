@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { v4 as uuid } from 'uuid';
-import { ConfirmService } from './dialogs/confirm.service';
+import { ConfirmService } from './services/confirm.service';
+import { VersionService } from './services/version.service';
 import { resolve, display } from '../periodic/const';
 import { SoundController } from './sound';
 import { repository } from './repository';
@@ -12,6 +13,7 @@ import { repository } from './repository';
 })
 
 export class AppComponent {
+  version: string;
   interval = 50;
   title = 'bingo';
   current: number;
@@ -19,9 +21,13 @@ export class AppComponent {
   items: any[];
   running: boolean;
   confirmService: ConfirmService;
+  versionService: VersionService;
 
-  constructor(confirmService: ConfirmService) {
+  constructor(confirmService: ConfirmService, versionService: VersionService) {
     this.confirmService = confirmService;
+    this.versionService = versionService;
+    this.version = versionService.getSemVer();
+
     this.initialize();
   }
 

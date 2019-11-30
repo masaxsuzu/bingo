@@ -15,7 +15,14 @@ describe('workspace-project App', () => {
 
   it('should have copyright', () => {
     page.navigateTo();
-    expect(page.getCopyrightText()).not.toEqual('');
+    const copyright = page.getCopyrightText();
+    expect(copyright).toContain('sound effect:');
+    expect(copyright).toContain('Maoudamashii');
+  });
+
+  it('should have version `bingo v1.1.0`', () => {
+    page.navigateTo();
+    expect(page.getVersionText()).toEqual('bingo v1.1.0');
   });
 
   afterEach(async () => {
