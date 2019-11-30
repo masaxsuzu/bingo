@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { ConfirmService } from './dialogs/confirm.service';
 import { resolve, display } from '../periodic/const';
 import { SoundController } from './sound';
 import { repository } from './repository';
@@ -17,8 +18,10 @@ export class AppComponent {
   numbers: string[];
   items: any[];
   running: boolean;
+  confirmService: ConfirmService;
 
-  constructor() {
+  constructor(confirmService: ConfirmService) {
+    this.confirmService = confirmService;
     this.initialize();
   }
 
@@ -78,8 +81,10 @@ export class AppComponent {
     if (this.running) {
       return;
     }
-    repository.save({});
-    this.initialize();
+    if (this.confirmService.run('Do you really want to reset?')) {
+      repository.save({});
+      this.initialize();
+    }
   }
 
   async roulette(milleSeconds: number): Promise<void> {

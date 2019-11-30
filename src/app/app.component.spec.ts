@@ -1,9 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ConfirmService } from './dialogs/confirm.service';
 import { range } from 'rxjs';
 
+class MockConfirm {
+  ok = true;
+  message: string;
+  run = (message: string): boolean => {
+    this.message = message;
+    return this.ok;
+  }
+}
+
 describe('AppComponent', () => {
+  const mockConfirm: MockConfirm = new MockConfirm();
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -12,8 +23,15 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        { provide: ConfirmService, useValue: mockConfirm }
+      ]
     }).compileComponents();
   }));
+
+  afterEach(async () => {
+    mockConfirm.ok = true;
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -77,6 +95,28 @@ describe('AppComponent', () => {
     }
     app.reset();
     expect(app.current).toEqual(0);
+  });
+
+  it(`should not reset if canceled`, async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app: AppComponent = fixture.debugElement.componentInstance;
+    app.reset();
+    app.interval = 0;
+    for (let index = 0; index < 3; index++) {
+      await app.start();
+    }
+
+    mockConfirm.ok = false;
+    app.reset();
+    expect(app.current).toEqual(3);
+  });
+
+  it(`should reset with message 'Do you really want to reset?' `, async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app: AppComponent = fixture.debugElement.componentInstance;
+    app.reset();
+
+    expect(mockConfirm.message).toEqual('Do you really want to reset?');
   });
 
   it(`should restore at initialization`, async () => {
