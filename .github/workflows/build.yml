@@ -7,6 +7,7 @@ on:
   push:
     branches:    
       - master
+      - v*.**
 
 jobs:
   build:
@@ -30,7 +31,8 @@ jobs:
       run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
     - name: E2E
       run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-    - name: Deploy      
+    - name: Deploy
+      if: startsWith(github.ref, 'refs/heads/v')      
       run: npm run action:deploy -- --message `git rev-parse HEAD` 
       env:
         CI: true
