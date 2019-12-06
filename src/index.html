@@ -6,6 +6,12 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    if(navigator.userAgent.indexOf('MSIE')!==-1 || 
+       navigator.appVersion.indexOf('Trident/') > -1){
+        alert("Sorry, Internet Explorer will never be supported!!!")
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>
