@@ -16,7 +16,7 @@ import { VersionService } from './services/version.service';
   ],
   providers: [
     { provide: ConfirmService, useValue: new ConfirmService() },
-    { provide: VersionService, useValue: new VersionService(1, 1, 1, '101') }
+    { provide: VersionService, useValue: new VersionService(1, 2, 0, '102') }
   ],
   bootstrap: [AppComponent]
 })
