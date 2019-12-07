@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1575719157928,
+  "timestamp": 1575720910229,
   "index": "/bingo/index.html",
   "assetGroups": [
     {
@@ -56,7 +56,7 @@
     "/bingo/index.html": "e0bd65b6484f607395d22623fd570c997df18c73",
     "/bingo/main-es2015.5da30973b1605b7bff49.js": "91e509af2b81b4e85fc904b5afe889fd52908488",
     "/bingo/main-es5.5da30973b1605b7bff49.js": "ce39a1c5b97018d766681d51ec409ff77da3955a",
-    "/bingo/manifest.webmanifest": "9b3972a8a0be12c1882ecd42157ba28995d0cc2f",
+    "/bingo/manifest.webmanifest": "ecc7ec2b45a05322475eff79f05a0edf64f02f46",
     "/bingo/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/bingo/polyfills-es5.6696c533341b95a3d617.js": "45c51483238468881240579c3fdecd19144cff17",
     "/bingo/runtime-es2015.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
