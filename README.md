@@ -8,7 +8,7 @@
 
 ### 公開場所
 
-[github pages](https://masaxsuzu.github.io/bingo)で利用可能です。
+[github pages](https://masaxsuzu.github.io/bingo/index.html)で利用可能です。
 
 ### 使い方
 

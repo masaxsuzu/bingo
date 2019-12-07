@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.1.1
+
+### Fixed
+
+- Prefetch .ogg files
+- Add a link 'apple-touch-icon'
+
 ## 2.1.0
 
 ### Added
