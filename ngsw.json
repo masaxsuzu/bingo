@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1575722557334,
+  "timestamp": 1575731013849,
   "index": "/bingo/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/bingo/favicon.ico",
         "/bingo/index.html",
-        "/bingo/main-es2015.1abd07c26dbf2c90c018.js",
-        "/bingo/main-es5.1abd07c26dbf2c90c018.js",
+        "/bingo/main-es2015.c3ffa4ab4345a121251a.js",
+        "/bingo/main-es5.c3ffa4ab4345a121251a.js",
         "/bingo/manifest.webmanifest",
         "/bingo/polyfills-es2015.2987770fde9daa1d8a2e.js",
         "/bingo/polyfills-es5.6696c533341b95a3d617.js",
@@ -23,7 +23,7 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
+      "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
         "/bingo/assets/cymbal.ogg",
@@ -53,9 +53,9 @@
     "/bingo/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/bingo/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/bingo/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/bingo/index.html": "8279dea22f1d37dda0ece5d852d85ef82c15bc84",
-    "/bingo/main-es2015.1abd07c26dbf2c90c018.js": "2165289ed90356c90a1fcd1dd6654c2ad004edf0",
-    "/bingo/main-es5.1abd07c26dbf2c90c018.js": "b312406458dc63173b0ace93bc91ca3def2f83c5",
+    "/bingo/index.html": "82e77363208f8d238ec9174f79e46869e5e8a0ba",
+    "/bingo/main-es2015.c3ffa4ab4345a121251a.js": "f3d19d8e50ae319f47df2bf8439a510c692f6802",
+    "/bingo/main-es5.c3ffa4ab4345a121251a.js": "b7dc42c8e7d3e453fcdfd69032023d8432e9bbed",
     "/bingo/manifest.webmanifest": "ecc7ec2b45a05322475eff79f05a0edf64f02f46",
     "/bingo/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/bingo/polyfills-es5.6696c533341b95a3d617.js": "45c51483238468881240579c3fdecd19144cff17",
