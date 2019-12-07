@@ -4,7 +4,7 @@
 
 1から111までの数を周期表上に表示するビンゴです。
 
-![bingo](https://github.com/masaxsuzu/bingo/raw/master/assets/play.png)
+![bingo](./assets/play.png)
 
 ### 公開場所
 
@@ -16,6 +16,7 @@
 - ドラムロールが5秒ほど流れます。 
 - リセットボタンを押すことでルーレット結果を初期化します。  
 - ルーレットの結果は[ローカルストレージ](https://developer.mozilla.org/ja/docs/Web/API/Window/localStorage)に保存しているため、再読み込みをしても直前の状態に復元されます。  
+- Google Chrome 67+を使用している場合は、デスクアップアプリとしてインストールが可能です。([インストール方法](./docs/install.md))
 
 ### 動作環境
 
@@ -29,19 +30,25 @@
 
 #### ブラウザ
 
+#### デスクトップ
+
 推奨ブラウザは```Google Chrome```です。開発および自動テストで使用しています。
 
 ```Edge```では簡単な動作の確認をしています。
 
-```Safari```、```Fire Fox```では動作の確認をしていません。
+```Safari```、```Firefox```では動作の確認をしていません。
 
 ```Internet Explorer```では動作しないことを確認しています。
+
+#### モバイル
+
+動作の確認をしていません。
 
 ### Author
 
 [masaxsuzu](https://github.com/masaxsuzu)
 
-Original authors are
+This repository is inspired by 
 
 - [sifue](https://github.com/sifue/partybingo)
 - [syumai](https://github.com/syumai/partybingo)
