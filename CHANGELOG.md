@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### PWA
+
+- Available offline once page is loaded.
+
+## 1.2.0
+
 ### Added
 
 - Alert if page is loaded by using Internet Explorer.
