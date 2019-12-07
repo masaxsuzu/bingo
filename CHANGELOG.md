@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 2.1.2
+
+### Fixed
+
+- Fix minor issues
+
 ## 2.1.1
 
 ### Fixed

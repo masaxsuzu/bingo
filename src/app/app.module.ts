@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     { provide: ConfirmService, useValue: new ConfirmService() },
-    { provide: VersionService, useValue: new VersionService(2, 1, 1, '105') }
+    { provide: VersionService, useValue: new VersionService(2, 1, 2, '106') }
   ],
   bootstrap: [AppComponent]
 })
