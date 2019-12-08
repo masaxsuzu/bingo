@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { AudioService } from './services/audio.service';
 import { ConfirmService } from './services/confirm.service';
+import { StorageService } from './services/storage.service';
 import { VersionService } from './services/version.service';
 import { resolve, display } from '../periodic/const';
-import { SoundController } from './sound';
-import { repository } from './repository';
+
+const STORAGE_KEY = 'github.com/masaxsuzu/bingo';
 
 @Component({
   selector: 'app-root',
@@ -20,19 +22,18 @@ export class AppComponent {
   numbers: string[];
   items: any[];
   running: boolean;
-  confirmService: ConfirmService;
-  versionService: VersionService;
 
-  constructor(confirmService: ConfirmService, versionService: VersionService) {
-    this.confirmService = confirmService;
-    this.versionService = versionService;
+  constructor(
+    readonly audioService: AudioService,
+    readonly confirmService: ConfirmService,
+    readonly storageService: StorageService,
+    readonly versionService: VersionService) {
     this.version = versionService.getSemVer();
-
     this.initialize();
   }
 
   initialize(): void {
-    const x = repository.load() || {};
+    const x = this.storageService.load(STORAGE_KEY) || {};
     const c = x.current;
     const n = x.numbers;
     const i = x.items;
@@ -63,12 +64,12 @@ export class AppComponent {
 
     const n = this.current;
     this.running = true;
-    audio.start();
+    this.audioService.start();
 
     // roulette 5s.
     await Promise.all(range(1, 100).map(x => this.roulette(x * this.interval)));
 
-    audio.stop();
+    this.audioService.stop();
 
     this.running = false;
 
@@ -76,11 +77,12 @@ export class AppComponent {
     const mayBeNumber = this.numbers[this.current - 1];
     this.items[parseInt(mayBeNumber, 10) - 1].active = true;
 
-    repository.save({
-      current: this.current,
-      numbers: this.numbers,
-      items: this.items
-    });
+    this.storageService.save(STORAGE_KEY,
+      {
+        current: this.current,
+        numbers: this.numbers,
+        items: this.items
+      });
   }
 
   reset(): void {
@@ -88,7 +90,7 @@ export class AppComponent {
       return;
     }
     if (this.confirmService.run('Do you really want to reset?')) {
-      repository.save({});
+      this.storageService.save(STORAGE_KEY, {});
       this.initialize();
     }
   }
@@ -119,8 +121,3 @@ const padLeft = (val: string, char: number, n: number) => {
   for (; val.length < n; val = `${char}` + val) { }
   return val;
 };
-
-const audio = new SoundController(
-  'assets/drumroll.ogg',
-  'assets/cymbal.ogg',
-);

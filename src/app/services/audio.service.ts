@@ -1,8 +1,14 @@
-export class SoundController {
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class AudioService {
   drumRollAudio: HTMLAudioElement;
   cymbalAudio: HTMLAudioElement;
   onEnded;
-  constructor(drumRollSrc, cymbalSrc) {
+  constructor(drumRollSrc: string , cymbalSrc: string) {
     this.drumRollAudio = new Audio(drumRollSrc);
     this.cymbalAudio = new Audio(cymbalSrc);
     this.onEnded = null;
@@ -18,3 +24,5 @@ export class SoundController {
     this.cymbalAudio.play();
   }
 }
+
+

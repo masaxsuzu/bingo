@@ -1,9 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { AudioService } from './services/audio.service';
 import { ConfirmService } from './services/confirm.service';
 import { VersionService } from './services/version.service';
-import { range } from 'rxjs';
+
+class MockAudio {
+  start(): void { }
+  stop(): void { }
+}
 
 class MockConfirm {
   ok = true;
@@ -15,6 +20,7 @@ class MockConfirm {
 }
 
 describe('AppComponent', () => {
+  const mockAudio: MockAudio = new MockAudio();
   const mockConfirm: MockConfirm = new MockConfirm();
   const version: VersionService = new VersionService(1, 1, 0, 'test');
 
@@ -27,6 +33,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
+        { provide: AudioService, useValue: mockAudio },
         { provide: ConfirmService, useValue: mockConfirm },
         { provide: VersionService, useValue: version }
       ]
