@@ -9,6 +9,7 @@ on:
       - master
       - try-gha
       - v*.**
+      - pr/*
 
 jobs:
   build:
