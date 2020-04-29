@@ -55,6 +55,11 @@ export class AppComponent {
   display: (n: number) => string = (n) => {
     const y = parseInt(resolve[this.numbers[n - 1]], 10);
     const x = display[y];
+    return !!x ? `${x}${y}` : 'MS';
+  }
+
+  displayFromIndex: (i: number) => string = (i) => {
+    const x = display[i];
     return !!x ? x : 'MS';
   }
 
