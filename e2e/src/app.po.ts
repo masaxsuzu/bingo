@@ -18,7 +18,7 @@ export class AppPage {
   }
 
   getVersionText() {
-    return element(by.className('version')).getText() as Promise<string>;
+    return element(by.id('router-root')).getText() as Promise<string>;
   }
 
   getStartButton() {
