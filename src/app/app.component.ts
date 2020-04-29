@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { v4 as uuid } from 'uuid';
 import { AudioService } from './services/audio.service';
 import { ConfirmService } from './services/confirm.service';
 import { StorageService } from './services/storage.service';
 import { VersionService } from './services/version.service';
 import { resolve, display } from '../periodic/const';
+import { ConfirmDialogComponent } from './ui/confirm-dialog.component';
 
 const STORAGE_KEY = 'github.com/masaxsuzu/bingo';
 
@@ -24,6 +25,7 @@ export class AppComponent {
   running: boolean;
 
   constructor(
+    readonly viewContainerRef: ViewContainerRef,
     readonly audioService: AudioService,
     readonly confirmService: ConfirmService,
     readonly storageService: StorageService,
@@ -85,14 +87,22 @@ export class AppComponent {
       });
   }
 
-  reset(): void {
+  async reset(): Promise<void> {
     if (this.running) {
       return;
     }
-    if (this.confirmService.run('Do you really want to reset?')) {
-      this.storageService.save(STORAGE_KEY, {});
-      this.initialize();
+    this.running = true;
+    const ok = await this.confirmService.openModal(
+      this.viewContainerRef ,
+      { title: 'Danger!', contents: 'Do you really want to reset the result?', class: 'modal' }).toPromise();
+
+    if (ok === 'OK' ) {
+        console.log('OK1');
+        this.storageService.save(STORAGE_KEY, {});
+        this.initialize();
     }
+
+    this.running = false;
   }
 
   async roulette(milleSeconds: number): Promise<void> {

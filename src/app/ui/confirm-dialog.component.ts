@@ -1,39 +1,68 @@
-import { Component, Optional, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnDestroy, Input } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 @Component({
-  template :
-  `
-    <h1 mat-dialog-title>
-      <div style="display:flex; align-items :center">
-        <i class="material-icons" style="color : rgb(228,155,15)">help_outline</i>{{title}}
+  selector: 'app-modal-template',
+  template: `
+      <div id="modal-container" [class]="data.class" [@openClose]="isOpen ? 'open' :'closed' ">
+         <h2>{{data.title}}</h2>
+         <div [innerHtml]="data.contents"></div>
+         <p>
+         <button class=modal-button id=button-modal-ok (click)="data.click('OK'); closeModal()">Ok</button>
+         <button class=modal-button id=button-modal-ng (click)="data.click('Cancel'); closeModal()">No thanks</button>
+         </p>
       </div>
-    </h1>
-    <mat-dialog-content>
-      <!-- https://angular.io/guide/template-syntax#!#property-binding-or-interpolation- -->
-      <div [innerHTML]="content"></div>
-    </mat-dialog-content>
 
-    <!-- <mat-dialog-actions> --><!-- 左 left -->
-    <mat-dialog-actions  style="justify-content:center"><!-- 中央 center -->
-    <!-- <mat-dialog-actions style="justify-content:flex-end"> --><!-- 右 right -->
-      <button mat-button [mat-dialog-close]="'cancel'">cancel</button>
-      <button mat-button [mat-dialog-close]="'ok'">OK</button>
-    </mat-dialog-actions>
-  `
+      <div id="overlay" (click)="data.click(); closeModal()" [@openClose]="isOpen ? 'open' :'closed'"></div>
+      `,
+  styleUrls: ['./confirm-dialog.component.less'],
+  // アニメーションの設定
+  // opacityの遷移をアニメーションにする。
+  // 遷移にかける時間は0.2s
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        opacity: 1,
+      })),
+      state('closed', style({
+        display: 'none',
+        opacity: 0,
+      })),
+      transition('open => closed', [
+        animate('0.2s')
+      ]),
+      transition('closed => open', [
+        animate('0.2s')
+      ]),
+      transition('* => void', [
+        animate('0.2s')
+      ]),
+      transition('void => *', [
+        animate('0.2s')
+      ]),
+    ])
+  ]
 })
-export class ConfirmDialogComponent implements OnInit {
+export class ConfirmDialogComponent implements OnDestroy {
 
-  public title: string;
-  public content: string;
+  @Input() data: any;
+  isOpen: boolean;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<ConfirmDialogComponent>
-  ) { }
+  constructor() {
+    this.isOpen = true;
+  }
 
-  ngOnInit(): void {
-    const config = this.data;
-    this.title = config.title;
-    this.content = config.content;
+  /*
+   * モーダルウィンドウを非表示にする。
+   * ウィンドウの破棄は次にモーダルウィンドウのを呼び出したときに、
+   * モーダルサービスで行うため、ここでは非表示にするだけ。
+  */
+  closeModal() {
+    this.isOpen = false;
+    this.ngOnDestroy();
+  }
+
+  ngOnDestroy(): void {
+
   }
 }

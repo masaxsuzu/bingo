@@ -5,6 +5,10 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
+  async wait(second: number): Promise<void> {
+    return sleep(second);
+  }
+
   getCurrentNumberText() {
     return element(by.className('current-number active')).getText() as Promise<string>;
   }
@@ -17,4 +21,22 @@ export class AppPage {
     return element(by.className('version')).getText() as Promise<string>;
   }
 
+  getStartButton() {
+    return element(by.className('spin start'));
+  }
+
+  getResetButton() {
+    return element(by.className('reset'));
+  }
+
+  getOkButtonOnModal() {
+    return element(by.id('button-modal-ok'));
+  }
+
 }
+
+const sleep = (waitSeconds: number): Promise<void> => new Promise(resolve => {
+  setTimeout(() => {
+    resolve();
+  }, waitSeconds * 1000);
+});

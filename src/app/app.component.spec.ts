@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { ViewContainerRef } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -12,11 +14,18 @@ class MockAudio {
 
 class MockConfirm {
   ok = true;
-  message: string;
-  run = (message: string): boolean => {
-    this.message = message;
-    return this.ok;
-  }
+  param: any;
+  openModal = (viewContainerRef: ViewContainerRef, param: any): Observable<any> => {
+    this.param = param;
+    return new Observable(subscriber => {
+      if (this.ok) {
+        subscriber.next('OK');
+        subscriber.complete();
+      } else {
+        subscriber.next('Cancel');
+        subscriber.complete();
+      }
+  }); }
 }
 
 describe('AppComponent', () => {
@@ -50,45 +59,45 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bingo'`, () => {
+  it(`should have as title 'bingo'`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     expect(app.title).toEqual('bingo');
   });
 
-  it(`should have ${111} numbers`, () => {
+  it(`should have ${111} numbers`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     expect(app.numbers.length).toEqual(111);
   });
 
-  it(`should have ${162} items`, () => {
+  it(`should have ${162} items`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     expect(app.items.length).toEqual(162);
   });
 
-  it(`should display 'MS' initially`, () => {
+  it(`should display 'MS' initially`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     expect(app.display(app.current)).toEqual('MS');
   });
 
-  it(`should format 1st item as '001'`, () => {
+  it(`should format 1st item as '001'`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     expect(app.format(app.items[0].n)).toEqual('001');
   });
 
   it(`should increment by 111`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     app.interval = 0;
     for (let index = 0; index < 112; index++) {
       await app.start();
@@ -99,41 +108,41 @@ describe('AppComponent', () => {
   it(`should reset`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     app.interval = 0;
     for (let index = 0; index < 3; index++) {
       await app.start();
     }
-    app.reset();
+    await app.reset();
     expect(app.current).toEqual(0);
   });
 
   it(`should not reset if canceled`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     app.interval = 0;
     for (let index = 0; index < 3; index++) {
       await app.start();
     }
 
     mockConfirm.ok = false;
-    app.reset();
+    await app.reset();
     expect(app.current).toEqual(3);
   });
 
-  it(`should reset with message 'Do you really want to reset?' `, async () => {
+  it(`should reset with message 'Do you really want to reset the result?' `, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
 
-    expect(mockConfirm.message).toEqual('Do you really want to reset?');
+    expect(mockConfirm.param.contents).toEqual('Do you really want to reset the result?');
   });
 
   it(`should restore at initialization`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
-    app.reset();
+    await app.reset();
     app.interval = 0;
     for (let index = 0; index < 3; index++) {
       await app.start();

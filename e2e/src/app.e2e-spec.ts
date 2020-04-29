@@ -25,6 +25,30 @@ describe('workspace-project App', () => {
     expect(page.getVersionText()).toEqual('bingo v3.0.0');
   });
 
+  it('should start', async () => {
+    page.navigateTo();
+
+    // start and wait
+    await page.getStartButton().click();
+    await page.wait(5);
+
+    expect(page.getCurrentNumberText()).not.toEqual('MS');
+
+  });
+
+  it('should reset if OK is clicked', async () => {
+    page.navigateTo();
+
+    // start and wait
+    await page.getStartButton().click();
+    await page.wait(5);
+
+    await page.getResetButton().click();
+    await page.getOkButtonOnModal().click();
+
+    expect(page.getCurrentNumberText()).toEqual('MS');
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
