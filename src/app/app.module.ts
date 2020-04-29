@@ -8,10 +8,12 @@ import { ConfirmService } from './services/confirm.service';
 import { VersionService } from './services/version.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ConfirmDialogComponent } from './ui/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
