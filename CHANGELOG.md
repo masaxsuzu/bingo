@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.0.0
+
+### Added
+
+- Show both of symbol and number
+
+### Changed
+
+- Reset only when clicking "Ok" button on reset modal
+
 ## 2.1.2
 
 ### Fixed
