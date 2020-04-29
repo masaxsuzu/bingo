@@ -13,7 +13,7 @@ $version = "v$($package.version)";
 
 git tag $version
 git switch -c $version
-git push origin $version
+git push origin tags/$version
 git push origin heads/$version
 
 git switch master
