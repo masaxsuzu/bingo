@@ -48,6 +48,6 @@ export class ConfirmService {
       } catch (err) {
         subject.error(err);
       }
-    }
+    };
   }
 }
