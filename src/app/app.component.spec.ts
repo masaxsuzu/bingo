@@ -99,7 +99,7 @@ describe('AppComponent', () => {
     const app: AppComponent = fixture.debugElement.componentInstance;
     await app.reset();
     app.interval = 0;
-    for (let index = 0; index < 112; index++) {
+    for (let index = 0; index < 120; index++) {
       await app.start();
     }
     expect(app.current).toEqual(111);

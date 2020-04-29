@@ -7,7 +7,7 @@ import { VersionService } from './services/version.service';
 import { resolve, display } from '../periodic/const';
 import { ConfirmDialogComponent } from './ui/confirm-dialog.component';
 
-const STORAGE_KEY = 'github.com/masaxsuzu/bingo';
+const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +19,7 @@ export class AppComponent {
   version: string;
   interval = 50;
   title = 'bingo';
+  max: number;
   current: number;
   numbers: string[];
   items: any[];
@@ -39,9 +40,11 @@ export class AppComponent {
     const c = x.current;
     const n = x.numbers;
     const i = x.items;
+    const m = x.max;
     this.current = !!c ? c : 0;
-    this.numbers = !!n ? n : Object.keys(resolve).sort((a, b) => uuid() > uuid() ? 1 : -1);
-    this.items = !!i ? i : init();
+    this.max = !!m ? m : parseParams().max;
+    this.numbers = !!n ? n : Object.keys(this.trimNumbers(resolve)).sort((a, b) => uuid() > uuid() ? 1 : -1);
+    this.items = !!i ? i : init(this.max);
     this.running = false;
   }
 
@@ -83,7 +86,8 @@ export class AppComponent {
       {
         current: this.current,
         numbers: this.numbers,
-        items: this.items
+        items: this.items,
+        max: this.max,
       });
   }
 
@@ -97,7 +101,6 @@ export class AppComponent {
       { title: 'Danger!', contents: 'Do you really want to reset the result?', class: 'modal' }).toPromise();
 
     if (ok === 'OK' ) {
-        console.log('OK1');
         this.storageService.save(STORAGE_KEY, {});
         this.initialize();
     }
@@ -107,14 +110,25 @@ export class AppComponent {
 
   async roulette(milleSeconds: number): Promise<void> {
     await sleep(milleSeconds);
-    this.current = Math.floor((Math.random() * 110) + 0);
+    this.current = Math.floor((Math.random() * (this.max - 1)) + 0);
+  }
+
+  private trimNumbers(numbers: any): any {
+    const data = {};
+    Object.keys(numbers).forEach(key => {
+      const n = Number.parseInt(numbers[key], 10);
+      if (n <= this.max) {
+        data[`${key}`] = n;
+      }
+    });
+    return data;
   }
 }
 
 const sleep: (msec: number) => Promise<void> = msec => new Promise(_ => setTimeout(_, msec));
 
-const init = () => range(1, 163).map(x => {
-  return resolve[x]
+const init = (max: number) => range(1, 163).map(x => {
+  return resolve[x] && resolve[x] <= max
     ? {
       n: resolve[x],
       active: false,
@@ -130,4 +144,12 @@ const range = (from: number, to: number) => [...Array(to - from)].map((_, i) => 
 const padLeft = (val: string, char: number, n: number) => {
   for (; val.length < n; val = `${char}` + val) { }
   return val;
+};
+
+const parseParams = () => {
+  const params = new URLSearchParams(window.location.search);
+  // max is at most 111.
+  return {
+    max: Math.min(parseInt(params.get('max'), 10) || 111, 111),
+  };
 };
