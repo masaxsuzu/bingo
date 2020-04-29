@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1575732664686,
+  "timestamp": 1588161591142,
   "index": "/bingo/index.html",
   "assetGroups": [
     {
@@ -10,13 +10,13 @@
       "urls": [
         "/bingo/favicon.ico",
         "/bingo/index.html",
-        "/bingo/main-es2015.87ab87387ba7e3b69b88.js",
-        "/bingo/main-es5.87ab87387ba7e3b69b88.js",
+        "/bingo/main-es2015.679fbe7adb794409830e.js",
+        "/bingo/main-es5.679fbe7adb794409830e.js",
         "/bingo/manifest.webmanifest",
-        "/bingo/polyfills-es2015.2987770fde9daa1d8a2e.js",
-        "/bingo/polyfills-es5.6696c533341b95a3d617.js",
-        "/bingo/runtime-es2015.edb2fcf2778e7bf1d426.js",
-        "/bingo/runtime-es5.edb2fcf2778e7bf1d426.js",
+        "/bingo/polyfills-es2015.f2c5ab749249a66bdf26.js",
+        "/bingo/polyfills-es5.049f620af8c864cf4d88.js",
+        "/bingo/runtime-es2015.1eba213af0b233498d9d.js",
+        "/bingo/runtime-es5.1eba213af0b233498d9d.js",
         "/bingo/styles.3ff695c00d717f2d2a11.css"
       ],
       "patterns": []
@@ -53,14 +53,14 @@
     "/bingo/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/bingo/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/bingo/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/bingo/index.html": "5c246e420c07959a58bfadcf784fecf5ed21db8a",
-    "/bingo/main-es2015.87ab87387ba7e3b69b88.js": "239c4f36380ae4e8d364cae89e4c8df8540fb2de",
-    "/bingo/main-es5.87ab87387ba7e3b69b88.js": "ad6b194e841a184a1cfd7ba9f4101730f02832c5",
+    "/bingo/index.html": "67660fe51791b1f87d89e08d53dae1de6a042eba",
+    "/bingo/main-es2015.679fbe7adb794409830e.js": "8aecb907c20a4618646ec1162c291b4fec73b80d",
+    "/bingo/main-es5.679fbe7adb794409830e.js": "a0b1d589b644e52dfd15eef477fea89f8b5585da",
     "/bingo/manifest.webmanifest": "65b5e3bd16ca48efbc265c090deeee61b69c8bcd",
-    "/bingo/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
-    "/bingo/polyfills-es5.6696c533341b95a3d617.js": "45c51483238468881240579c3fdecd19144cff17",
-    "/bingo/runtime-es2015.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/bingo/runtime-es5.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/bingo/polyfills-es2015.f2c5ab749249a66bdf26.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/bingo/polyfills-es5.049f620af8c864cf4d88.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
+    "/bingo/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/bingo/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/bingo/styles.3ff695c00d717f2d2a11.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
   },
   "navigationUrls": [
