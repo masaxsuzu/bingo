@@ -8,7 +8,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
          <h2>{{data.title}}</h2>
          <div [innerHtml]="data.contents"></div>
          <p>
-         <button class=modal-button id=button-modal-ok (click)="data.click('OK'); closeModal()">Ok</button>
+         <button class=modal-button id=button-modal-ok (click)="data.click('OK'); closeModal()">OK</button>
          <button class=modal-button id=button-modal-ng (click)="data.click('Cancel'); closeModal()">No thanks</button>
          </p>
       </div>
