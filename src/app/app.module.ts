@@ -27,7 +27,7 @@ import { ConfirmDialogComponent } from './ui/confirm-dialog.component';
   providers: [
     { provide: AudioService, useValue: new AudioService('assets/drumroll.ogg', 'assets/cymbal.ogg') },
     // { provide: ConfirmService, useValue: new ConfirmService() },
-    { provide: VersionService, useValue: new VersionService(3, 0, 1, '108') }
+    { provide: VersionService, useValue: new VersionService(3, 1, 0, '109') }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

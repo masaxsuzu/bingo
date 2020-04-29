@@ -20,9 +20,9 @@ describe('workspace-project App', () => {
     expect(copyright).toContain('Maoudamashii');
   });
 
-  it('should have version `bingo v3.0.1`', () => {
+  it('should have version `bingo v3.1.0`', () => {
     page.navigateTo();
-    expect(page.getVersionText()).toEqual('bingo v3.0.1');
+    expect(page.getVersionText()).toEqual('bingo v3.1.0');
   });
 
   it('should start', async () => {
