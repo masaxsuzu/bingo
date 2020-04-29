@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
   providers: [
     { provide: AudioService, useValue: new AudioService('assets/drumroll.ogg', 'assets/cymbal.ogg') },
     { provide: ConfirmService, useValue: new ConfirmService() },
-    { provide: VersionService, useValue: new VersionService(2, 1, 2, '106') }
+    { provide: VersionService, useValue: new VersionService(3, 0, 0, '107') }
   ],
   bootstrap: [AppComponent]
 })
