@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -46,7 +46,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -134,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "bingo"
+  "defaultProject": "bingo",
+  "cli": {
+    "analytics": "9e10b326-2cf5-4d9a-816d-1ac32c845f3a"
+  }
 }
