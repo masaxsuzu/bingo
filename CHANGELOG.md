@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Show both of symbol and number
+- Customize maximum number
 
 ### Changed
 
