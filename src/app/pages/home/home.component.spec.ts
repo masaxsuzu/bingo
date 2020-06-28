@@ -67,7 +67,16 @@ describe('HomeComponent', () => {
     const fixture = TestBed.createComponent(HomeComponent);
     const app: HomeComponent = fixture.debugElement.componentInstance;
     await app.reset();
-    expect(app.items.length).toEqual(162);
+    expect(app.items.length).toEqual(9);
+    expect(app.items[0].length).toEqual(18);
+    expect(app.items[1].length).toEqual(18);
+    expect(app.items[2].length).toEqual(18);
+    expect(app.items[3].length).toEqual(18);
+    expect(app.items[4].length).toEqual(18);
+    expect(app.items[5].length).toEqual(18);
+    expect(app.items[6].length).toEqual(18);
+    expect(app.items[7].length).toEqual(18);
+    expect(app.items[8].length).toEqual(18);
   });
 
   it(`should display 'MS' initially`, async () => {
@@ -81,7 +90,7 @@ describe('HomeComponent', () => {
     const fixture = TestBed.createComponent(HomeComponent);
     const app: HomeComponent = fixture.debugElement.componentInstance;
     await app.reset();
-    expect(app.format(app.items[0].n)).toEqual('001');
+    expect(app.format(app.items[0][0].n)).toEqual('001');
   });
 
   it(`should increment by 111`, async () => {
@@ -142,7 +151,7 @@ describe('HomeComponent', () => {
     const items = app.items;
     app.current = -123;
     app.numbers = ['none'];
-    app.items = [1, '3'];
+    app.items = [[1], ['3']];
     app.initialize();
 
     expect(app.current).toEqual(current);

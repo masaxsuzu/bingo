@@ -12,13 +12,13 @@ const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3';
 export class ConfigComponent implements OnInit {
 
   max: number;
-  readonly data: any;
+  data: any;
   constructor(readonly storageService: StorageService) {
-    this.max = 100;
-    this.data = storageService.load(STORAGE_KEY);
   }
 
   ngOnInit(): void {
+    this.max = 100;
+    this.data = this.storageService.load(STORAGE_KEY);
   }
 
 }

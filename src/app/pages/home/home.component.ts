@@ -1,4 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { v4 as uuid } from 'uuid';
 import { AudioService } from '../../services/audio.service';
 import { ConfirmService } from '../../services/confirm.service';
@@ -14,10 +14,10 @@ const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3.2';
   styleUrls: ['./home.component.less']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   interval = 50;
   title = 'bingo';
-  max: number;
+  max = 0;
   current: number;
   numbers: string[];
   items: any[][];
@@ -28,6 +28,9 @@ export class HomeComponent {
     readonly audioService: AudioService,
     readonly confirmService: ConfirmService,
     readonly storageService: StorageService) {
+  }
+
+  ngOnInit() {
     this.initialize();
   }
 
@@ -86,7 +89,6 @@ export class HomeComponent {
     const row = Math.floor(i / 18);
     const col = i % 18;
     this.items[row][col].active = true;
-    console.log(this.items);
     this.storageService.save(STORAGE_KEY,
       {
         current: this.current,
@@ -145,7 +147,7 @@ const init = (max: number) =>  {
     };
   });
 
-  return range(0, 8).map(i => {
+  return range(0, 9).map(i => {
     return m.slice(i * 18, i * 18 + 18);
   });
 };
