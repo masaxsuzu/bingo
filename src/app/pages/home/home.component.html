@@ -7,25 +7,31 @@
   </div>
 
   <div class="history-container">
-    <div *ngFor="let item of items">
-      <div [ngSwitch]="item.active">
-        <div class="history active" *ngSwitchCase="true">
-          {{displayFromIndex(item.n)}}
-          <br>
-          {{format(item.n)}}
-        </div>
-        <div class="history" *ngSwitchCase="false">
-          {{displayFromIndex(item.n)}}
-          <br>
-          {{format(item.n)}}
-        </div>
-        <div class="history" *ngSwitchCase="'none'">
-          <br>
-          {{format(item.n)}}
-        </div>
+    <tr *ngFor="let row of items">
+      <td *ngFor="let item of row">
+        <ng-container [ngTemplateOutlet]="history" [ngTemplateOutletContext]="{item:item}"></ng-container>
+      </td>
+    </tr>
+  </div>
+
+  <ng-template #history let-item='item'>
+    <div [ngSwitch]="item.active">
+      <div class="history active" *ngSwitchCase="true">
+        {{displayFromIndex(item.n)}}
+        <br>
+        {{format(item.n)}}
+      </div>
+      <div class="history" *ngSwitchCase="false">
+        {{displayFromIndex(item.n)}}
+        <br>
+        {{format(item.n)}}
+      </div>
+      <div class="history" *ngSwitchCase="'none'">
+        <br>
+        {{format(item.n)}}
       </div>
     </div>
-  </div>
+  </ng-template>
 
   <div class="button-container"><button class="reset" (click)="reset()">Reset</button></div>
 
