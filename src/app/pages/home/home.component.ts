@@ -82,9 +82,9 @@ export class HomeComponent {
     this.current = n + 1;
     const mayBeNumber = this.numbers[this.current - 1];
 
-    let i = parseInt(mayBeNumber, 10) - 1;
-    let row = Math.floor(i / 18);
-    let col = i % 18;
+    const i = parseInt(mayBeNumber, 10) - 1;
+    const row = Math.floor(i / 18);
+    const col = i % 18;
     this.items[row][col].active = true;
     console.log(this.items);
     this.storageService.save(STORAGE_KEY,
@@ -133,7 +133,7 @@ export class HomeComponent {
 const sleep: (msec: number) => Promise<void> = msec => new Promise(_ => setTimeout(_, msec));
 
 const init = (max: number) =>  {
-  let m = range(1, 163).map(x => {
+  const m = range(1, 163).map(x => {
   return resolve[x] && resolve[x] <= max
     ? {
       n: resolve[x],
@@ -147,8 +147,8 @@ const init = (max: number) =>  {
 
   return range(0, 8).map(i => {
     return m.slice(i * 18, i * 18 + 18);
-  })
-}
+  });
+};
 
 const range = (from: number, to: number) => [...Array(to - from)].map((_, i) => (from + i));
 
