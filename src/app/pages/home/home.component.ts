@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { AudioService } from '../../services/audio.service';
 import { ConfirmService } from '../../services/confirm.service';
 import { StorageService } from '../../services/storage.service';
-import { resolve, display } from '../../../periodic/const';
+import { resolve, display } from '../../periodic/const';
 import { ConfirmDialogComponent } from '../../ui/confirm-dialog.component';
 
 const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3';
