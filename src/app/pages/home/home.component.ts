@@ -1,10 +1,10 @@
 import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { v4 as uuid } from 'uuid';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AudioService } from '../../services/audio.service';
 import { ConfirmService } from '../../services/confirm.service';
 import { StorageService } from '../../services/storage.service';
 import { resolve, display } from '../../periodic/const';
-import { ConfirmDialogComponent } from '../../ui/confirm-dialog.component';
 
 const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3.2';
 
@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
     readonly viewContainerRef: ViewContainerRef,
     readonly audioService: AudioService,
     readonly confirmService: ConfirmService,
-    readonly storageService: StorageService) {
+    readonly storageService: StorageService,
+    readonly spinnerService: NgxSpinnerService) {
   }
 
   ngOnInit() {
@@ -71,6 +72,8 @@ export class HomeComponent implements OnInit {
       return;
     }
 
+    this.spinnerService.show();
+
     const n = this.current;
     this.running = true;
     this.audioService.start();
@@ -96,6 +99,9 @@ export class HomeComponent implements OnInit {
         items: this.items,
         max: this.max,
       });
+
+    this.spinnerService.hide();
+
   }
 
   async reset(): Promise<void> {
