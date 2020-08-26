@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
 import { MatDialogModule} from '@angular/material/dialog';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
     RouterModule,
     AppRoutingModule,
     MatDialogModule,
+    NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [

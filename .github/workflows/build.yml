@@ -9,7 +9,10 @@ on:
       - master
       - try-gha
       - v*.**
-      - pr/*
+
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:

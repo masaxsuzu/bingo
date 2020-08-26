@@ -5,6 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HomeComponent } from './home.component';
 import { AudioService } from '../../services/audio.service';
 import { ConfirmService } from '../../services/confirm.service';
+import { Spinner } from 'ngx-spinner/lib/ngx-spinner.enum';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 class MockAudio {
   start(): void { }
@@ -27,9 +29,22 @@ class MockConfirm {
   }); }
 }
 
+class MockSpinner {
+  public shown = false;
+  public done = false;
+  show(name?: string, spinner?: Spinner): void {
+    this.shown = true;
+  }
+
+  hide(name?: string, debounce?: number): void {
+    this.done = true;
+  }
+}
+
 describe('HomeComponent', () => {
   const mockAudio: MockAudio = new MockAudio();
   const mockConfirm: MockConfirm = new MockConfirm();
+  const mockSpinner: MockSpinner = new MockSpinner();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -42,6 +57,7 @@ describe('HomeComponent', () => {
       providers: [
         { provide: AudioService, useValue: mockAudio },
         { provide: ConfirmService, useValue: mockConfirm },
+        { provide: NgxSpinnerService, useValue: mockSpinner }
       ]
     }).compileComponents();
   }));
@@ -128,6 +144,17 @@ describe('HomeComponent', () => {
     mockConfirm.ok = false;
     await app.reset();
     expect(app.current).toEqual(3);
+  });
+
+  it(`should show spinner`, async () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app: HomeComponent = fixture.debugElement.componentInstance;
+    await app.reset();
+
+    await app.start();
+
+    expect(mockSpinner.shown).toEqual(true);
+    expect(mockSpinner.done).toEqual(true);
   });
 
   it(`should reset with message 'Do you really want to reset the result?' `, async () => {
