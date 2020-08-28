@@ -1,22 +1,25 @@
 {
   "configVersion": 1,
-  "timestamp": 1596214157638,
+  "timestamp": 1598632218080,
   "index": "/bingo/index.html",
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/bingo/favicon.ico",
         "/bingo/index.html",
-        "/bingo/main-es2015.40653f5c5d9d94934b6f.js",
-        "/bingo/main-es5.40653f5c5d9d94934b6f.js",
+        "/bingo/main-es2015.6b8a7c4d697d8bb376f5.js",
+        "/bingo/main-es5.6b8a7c4d697d8bb376f5.js",
         "/bingo/manifest.webmanifest",
-        "/bingo/polyfills-es2015.f2c5ab749249a66bdf26.js",
-        "/bingo/polyfills-es5.049f620af8c864cf4d88.js",
-        "/bingo/runtime-es2015.1eba213af0b233498d9d.js",
-        "/bingo/runtime-es5.1eba213af0b233498d9d.js",
+        "/bingo/polyfills-es2015.a0fa45e0fa52702b64f0.js",
+        "/bingo/polyfills-es5.2dcde1efe3c1bf4aaa25.js",
+        "/bingo/runtime-es2015.409e6590615fb48d139f.js",
+        "/bingo/runtime-es5.409e6590615fb48d139f.js",
         "/bingo/styles.3ff695c00d717f2d2a11.css"
       ],
       "patterns": []
@@ -25,6 +28,9 @@
       "name": "assets",
       "installMode": "prefetch",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
         "/bingo/assets/cymbal.ogg",
         "/bingo/assets/drumroll.ogg",
@@ -53,14 +59,14 @@
     "/bingo/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "/bingo/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/bingo/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/bingo/index.html": "45604c9b49e1a60c05de537d2431631e3be45522",
-    "/bingo/main-es2015.40653f5c5d9d94934b6f.js": "ea11d05c02647d7e2e2091b952bb6e75b22eb97a",
-    "/bingo/main-es5.40653f5c5d9d94934b6f.js": "892da61183551ddf5ab92d5aaf69e85fb03c1408",
+    "/bingo/index.html": "7a6d9e9421943d42750a56a1411409b08e006bb4",
+    "/bingo/main-es2015.6b8a7c4d697d8bb376f5.js": "47a135263d2598a6553b461292812f6586f22179",
+    "/bingo/main-es5.6b8a7c4d697d8bb376f5.js": "5bbfdca175097d3dcc6ea35ffc2648d69ed4b940",
     "/bingo/manifest.webmanifest": "65b5e3bd16ca48efbc265c090deeee61b69c8bcd",
-    "/bingo/polyfills-es2015.f2c5ab749249a66bdf26.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
-    "/bingo/polyfills-es5.049f620af8c864cf4d88.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
-    "/bingo/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/bingo/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/bingo/polyfills-es2015.a0fa45e0fa52702b64f0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/bingo/polyfills-es5.2dcde1efe3c1bf4aaa25.js": "ff14d90e08622190714660721edab5f43578829a",
+    "/bingo/runtime-es2015.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/bingo/runtime-es5.409e6590615fb48d139f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/bingo/styles.3ff695c00d717f2d2a11.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
   },
   "navigationUrls": [
