@@ -6,7 +6,7 @@ import { ConfirmService } from '../../services/confirm.service';
 import { StorageService } from '../../services/storage.service';
 import { resolve, display } from '../../domain/atomic';
 
-const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3.2';
+const STORAGE_KEY = 'github.com/masaxsuzu/bingo/v3.3';
 
 @Component({
   selector: 'app-home',

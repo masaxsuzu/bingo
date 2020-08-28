@@ -39,8 +39,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     { provide: AudioService, useValue: new AudioService('assets/drumroll.ogg', 'assets/cymbal.ogg') },
-    // { provide: ConfirmService, useValue: new ConfirmService() },
-    { provide: VersionService, useValue: new VersionService(3, 2, 0, '110') }
+    { provide: VersionService, useValue: new VersionService(3, 3, 0, '111') }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

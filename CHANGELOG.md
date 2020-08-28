@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 3.3.0
+
+- Show spinner
+
 ## 3.0.1
 
 ### Fixed

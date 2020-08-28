@@ -8,6 +8,7 @@ on:
     branches:    
       - master
       - try-gha
+    tags:
       - v*.**
 
   pull_request:
@@ -43,7 +44,7 @@ jobs:
     - name: E2E
       run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
     - name: Deploy
-      if: startsWith(github.ref, 'refs/heads/v')      
+      if: startsWith(github.ref, 'refs/tags/v')      
       run: npm run action:deploy -- --message `git rev-parse HEAD` 
       env:
         CI: true
