@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy, Input, ViewContainerRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -48,7 +48,7 @@ export class ConfirmDialogComponent implements OnDestroy {
   @Input() data: any;
   isOpen: boolean;
 
-  constructor() {
+  constructor(public viewContainerRef: ViewContainerRef) {
     this.isOpen = true;
   }
 
