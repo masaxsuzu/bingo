@@ -1,6 +1,7 @@
 # Bingo
 
 [![Actions Status](https://github.com/masaxsuzu/bingo/workflows/CI/CD/badge.svg)](https://github.com/masaxsuzu/bingo/actions) [![codebeat badge](https://codebeat.co/badges/d7f6198a-5fd2-4955-85fd-5c4bc1f6a6da)](https://codebeat.co/projects/github-com-masaxsuzu-bingo-master)
+[![codecov](https://codecov.io/gh/masaxsuzu/bingo/branch/master/graph/badge.svg)](https://codecov.io/gh/masaxsuzu/bingo)
 
 1から111までの数を周期表上に表示するビンゴです。
 
