@@ -49,3 +49,4 @@ jobs:
       env:
         CI: true
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - uses: codecov/codecov-action@v1
