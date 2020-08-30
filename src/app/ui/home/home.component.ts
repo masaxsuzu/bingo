@@ -59,8 +59,7 @@ export class HomeComponent implements OnInit {
   }
 
   displayFromIndex: (i: number) => string = (i) => {
-    const x = display[i];
-    return !!x ? x : 'MS';
+    return display[i];
   }
 
   async start(): Promise<void> {

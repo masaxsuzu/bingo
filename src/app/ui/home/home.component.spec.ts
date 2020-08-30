@@ -121,6 +121,16 @@ describe('HomeComponent', () => {
     expect(app.current).toEqual(111);
   });
 
+  it(`should not start if running`, async () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app: HomeComponent = fixture.debugElement.componentInstance;
+    await app.reset();
+    app.interval = 0;
+    app.running = true;
+    await app.start();
+    expect(app.current).toEqual(0);
+  });
+
   it(`should reset`, async () => {
     const fixture = TestBed.createComponent(HomeComponent);
     const app: HomeComponent = fixture.debugElement.componentInstance;
@@ -131,6 +141,19 @@ describe('HomeComponent', () => {
     }
     await app.reset();
     expect(app.current).toEqual(0);
+  });
+
+  it(`should not reset if running`, async () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app: HomeComponent = fixture.debugElement.componentInstance;
+    await app.reset();
+    app.interval = 0;
+
+    await app.start();
+    app.running = true;
+    await app.reset();
+
+    expect(app.current).toEqual(1);
   });
 
   it(`should not reset if canceled`, async () => {
