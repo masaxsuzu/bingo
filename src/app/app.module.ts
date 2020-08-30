@@ -6,13 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './ui/home/home.component';
 import { AudioService } from './services/audio.service';
 import { ConfirmService } from './services/confirm.service';
 import { VersionService } from './services/version.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ConfigComponent } from './pages/config/config.component';
+import { ConfigComponent } from './ui/config/config.component';
 
 const appRoutes: Routes = [
   { path: 'experimental', component: ConfigComponent },

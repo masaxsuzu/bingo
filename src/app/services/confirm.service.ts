@@ -1,6 +1,6 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ConfirmDialogComponent } from '../ui/confirm-dialog.component';
+import { ConfirmDialogComponent } from '../ui/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root'
