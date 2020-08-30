@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 import { AudioService } from '../../services/audio.service';
 import { ConfirmService } from '../../services/confirm.service';
 import { Spinner } from 'ngx-spinner/lib/ngx-spinner.enum';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
 
 class MockAudio {
   start(): void { }
@@ -49,7 +49,8 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        NgxSpinnerModule
       ],
       declarations: [
         HomeComponent
