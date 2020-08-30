@@ -7,11 +7,9 @@ import { Injectable, Inject } from '@angular/core';
 export class AudioService {
   drumRollAudio: HTMLAudioElement;
   cymbalAudio: HTMLAudioElement;
-  onEnded;
   constructor(@Inject(String) drumRollSrc: string , @Inject(String) cymbalSrc: string) {
     this.drumRollAudio = new Audio(drumRollSrc);
     this.cymbalAudio = new Audio(cymbalSrc);
-    this.onEnded = null;
   }
 
   start(): void {
