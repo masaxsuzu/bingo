@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { ViewContainerRef } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HomeComponent } from './home.component';
 import { AudioService } from '../../services/audio.service';
@@ -46,7 +46,7 @@ describe('HomeComponent', () => {
   const mockConfirm: MockConfirm = new MockConfirm();
   const mockSpinner: MockSpinner = new MockSpinner();
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
