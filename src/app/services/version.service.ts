@@ -11,9 +11,9 @@ export class VersionService {
 
   constructor() {
 
-    this.major = parseInt(version.split('.')[0]);
-    this.minor = parseInt(version.split('.')[1]);
-    this.patch = parseInt(version.split('.')[2]);
+    this.major = parseInt(version.split('.')[0], 10);
+    this.minor = parseInt(version.split('.')[1], 10);
+    this.patch = parseInt(version.split('.')[2], 10);
   }
   getSemVer(): string {
     return `v${this.major}.${this.minor}.${this.patch}`;
