@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { VersionService } from './services/version.service';
@@ -6,7 +6,7 @@ import { VersionService } from './services/version.service';
 describe('AppComponent', () => {
   const version: VersionService = new VersionService(1, 1, 0, 'test');
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
