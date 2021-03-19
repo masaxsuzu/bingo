@@ -1,4 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
+import { version } from '../../../package.json';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -7,24 +8,15 @@ export class VersionService {
   public major: number;
   public minor: number;
   public patch: number;
-  public build: string;
 
-  constructor(
-    @Inject('number') major: number,
-    @Inject('number') minor: number,
-    @Inject('number') patch: number,
-    @Inject('string') build: string) {
+  constructor() {
 
-    this.major = major;
-    this.minor = minor;
-    this.patch = patch;
-    this.build = build;
+    this.major = parseInt(version.split('.')[0]);
+    this.minor = parseInt(version.split('.')[1]);
+    this.patch = parseInt(version.split('.')[2]);
   }
   getSemVer(): string {
     return `v${this.major}.${this.minor}.${this.patch}`;
-  }
-  getFullVer(): string {
-    return `v${this.major}.${this.minor}.${this.patch}+${this.build}`;
   }
 
 }

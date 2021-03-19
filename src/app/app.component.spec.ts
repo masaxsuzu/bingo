@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { VersionService } from './services/version.service';
 
 describe('AppComponent', () => {
-  const version: VersionService = new VersionService(1, 1, 0, 'test');
+  const version: VersionService = new VersionService();
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
     app.ngOnInit();
-    expect(app.version).toEqual('v1.1.0');
+    expect(app.version).toEqual('v3.3.0');
   });
 });
