@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app: AppComponent = fixture.debugElement.componentInstance;
     app.ngOnInit();
-    expect(app.version).toEqual('v3.3.1');
+    expect(app.version).toEqual('v3.3.2');
   });
 });

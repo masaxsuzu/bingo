@@ -1,6 +1,6 @@
 {
   "name": "bingo",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -37,7 +37,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.20.6",
-    "angular-cli-ghpages": "^0.6.2",
+    "angular-cli-ghpages": "^1.0.0-rc.1",
     "codecov.io": "^0.1.6",
     "codelyzer": "^6.0.1",
     "jasmine-core": "~3.5.0",
