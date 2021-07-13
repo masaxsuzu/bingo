@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 4.0.0
+
+- Switch to react.js
+
 ## 3.3.0
 
 - Show spinner

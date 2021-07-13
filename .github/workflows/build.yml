@@ -7,11 +7,13 @@ on:
   push:
     branches:    
       - master
+      - main
       - try-gha
 
   pull_request:
     branches:
       - master
+      - main
 
 jobs:
   build:
@@ -19,7 +21,7 @@ jobs:
     # Machine environment:
     # https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions#ubuntu-1804-lts
     # We specify the Node.js version manually below, and use versioned Chrome from Puppeteer.
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v1
@@ -29,22 +31,20 @@ jobs:
         echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
         sudo apt-get update
         sudo apt install google-chrome-stable
-    - name: Use Node.js 12.8
+    - name: Use Node.js 14.17
       uses: actions/setup-node@v1
       with:
-        node-version: 12.8
+        node-version: 14.17
     - name: Install dependencies
-      run: npm install
-    - name: Lint
-      run: npm run lint
+      working-directory: ./v2
+      run: yarn install
     - name: Test
-      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-    - name: E2E
-      run: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-    - name: Deploy
-      if: github.ref == 'refs/heads/master'      
-      run: npm run action:deploy -- --message `git rev-parse HEAD` 
-      env:
-        CI: true
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-    - uses: codecov/codecov-action@v1
+      working-directory: ./v2
+      run: CI=true yarn test
+    # - name: Deploy
+    #   if: github.ref == 'refs/heads/master'      
+    #   run: npm run action:deploy -- --message `git rev-parse HEAD` 
+    #   env:
+    #     CI: true
+    #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    # - uses: codecov/codecov-action@v1
